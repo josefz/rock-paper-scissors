@@ -1,0 +1,70 @@
+body {
+    background-color: lightblue;
+    background-image: url(./images/Sky.png);
+    font-family: 'Chango', cursive;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.game-title-container {
+}
+
+.game-options .game-option {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-options button {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    whitespace: nowrap;
+    padding: 6px 12px;
+    font-size: 1.4rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    user-select: none;
+}
+
+.game-options .game-option__orange button {
+    color: #FFF3E0;
+    border-color: #FB8C00;
+    background: linear-gradient(to bottom, #FFB74D 0%, #FFA726 100%);
+    box-shadow: inset 0 1px #FFE0B2, 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.game-options .game-option__orange button:hover {
+    border-color: #FFA726;
+    background: linear-gradient(to bottom, #FFCC80 0%, #FFB74D 100%);
+    box-shadow: inset 0 1px #FFF3E0, 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.game-options .game-option__green button {
+    color: #E8F5E9;
+    border-color: #43A047;
+    background: linear-gradient(to bottom, #81C784 0%, #66BB6A 100%);
+    box-shadow: inset 0 1px #C8E6C9, 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.game-options .game-option__green button:hover {
+    border-color: transparent;
+    color: #fff;
+    background: #81C784;
+    box-shadow: none;
+}

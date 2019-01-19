@@ -1,0 +1,16 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "author": "Jose Fernandez <https://github.com/josefz>",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "http-server src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
