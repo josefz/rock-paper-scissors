@@ -1,5 +1,5 @@
-var router = require('./router');
+import Router from './router';
 
-test('Expect router to be defined', () => {
-    expect(router).toBeDefined();
+test('Expect class router to be defined', () => {
+    expect(Router).toBeDefined();
 });
