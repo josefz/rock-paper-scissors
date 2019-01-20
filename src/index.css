@@ -2,9 +2,38 @@ body {
     background-color: lightblue;
     background-image: url(./images/Sky.png);
     font-family: 'Chango', cursive;
+    margin: 0;
 }
 
-#main-container {
+/* PLAY-PAGE */
+#play-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#play-page .header{
+    height: 50px;
+}
+
+#play-page .content{
+    height: 100%;
+}
+
+#play-page .selection-phase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#play-page .selection-phase .option:hover {
+    color:red;
+    cursor: pointer;
+}
+
+/* WELCOME-PAGE */
+#welcome-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,9 +41,6 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
-}
-
-.game-title-container {
 }
 
 .game-options .game-option {
@@ -25,7 +51,7 @@ body {
     justify-content: center;
 }
 
-.game-options button {
+.game-options a {
     display: inline-block;
     margin-bottom: 0;
     text-align: center;
@@ -42,29 +68,29 @@ body {
     user-select: none;
 }
 
-.game-options .game-option__orange button {
+.game-options .game-option__orange a {
     color: #FFF3E0;
     border-color: #FB8C00;
     background: linear-gradient(to bottom, #FFB74D 0%, #FFA726 100%);
     box-shadow: inset 0 1px #FFE0B2, 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.game-options .game-option__orange button:hover {
+.game-options .game-option__orange a:hover {
     border-color: #FFA726;
     background: linear-gradient(to bottom, #FFCC80 0%, #FFB74D 100%);
     box-shadow: inset 0 1px #FFF3E0, 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.game-options .game-option__green button {
+.game-options .game-option__green a {
     color: #E8F5E9;
     border-color: #43A047;
     background: linear-gradient(to bottom, #81C784 0%, #66BB6A 100%);
     box-shadow: inset 0 1px #C8E6C9, 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.game-options .game-option__green button:hover {
+.game-options .game-option__green a:hover {
     border-color: transparent;
     color: #fff;
-    background: #81C784;
+    background: linear-gradient(to bottom, #A5D6A7 0%, #81C784 100%);;
     box-shadow: none;
 }

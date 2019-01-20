@@ -22,17 +22,17 @@ class Router {
         const route = this.routes.filter( route => hash === route.path )[ 0 ];
 
         if ( route ) {
-            this.showComponent( route.component );
+            this.updateView( route.component );
         } else {
-            this.showComponent();
+            this.updateView();
         }
     };
 
-    showComponent( component ) {
+    updateView( component ) {
         if ( !component ) {
             this.target.innerHTML = '<h3>Not Found</h3>';
         } else {
-            this.target.innerHTML = component.view;
+            component.load(this.target);
         }
     }
 }

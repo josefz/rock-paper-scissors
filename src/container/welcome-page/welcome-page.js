@@ -1,7 +1,7 @@
 import Component from "/../../lib/component.js";
 
-const htmlTemplate = `
-        <div id="main-container">
+const htmlTemplate = (model) => `
+        <div id="welcome-page">
             <div class="game-title-container">
                 <div class="game-title">
                     ROCK PAPER SCISSORS
@@ -19,12 +19,14 @@ const htmlTemplate = `
                     <a href="/#/top-scorers">Top Scorers</a>
                 </div>
             </div>
-        </div>
     `;
 
 let WelcomePage = new Component( {
+    name: 'play-page',
     model: {},
-    view: htmlTemplate,
+    view: {
+        template: htmlTemplate
+    },
     controller: {}
 } );
 
