@@ -1,15 +1,18 @@
 import Component from "/../../lib/component.js";
 
-const htmlTemplate = `
+const htmlTemplate = () => `
         <div>
            <h1>TopScorers</h1>
         </div>
     `;
 
-let TopScorersPage = new Component({
+let TopScorersPage = new Component( {
+    name: 'top-scorers-page',
     model: {},
-    view: htmlTemplate,
+    view: {
+        template: htmlTemplate
+    },
     controller: {}
-});
+} );
 
 export default TopScorersPage;

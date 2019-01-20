@@ -22,7 +22,7 @@ const htmlTemplate = (model) => `
     `;
 
 let WelcomePage = new Component( {
-    name: 'play-page',
+    name: 'welcome-page',
     model: {},
     view: {
         template: htmlTemplate
