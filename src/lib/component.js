@@ -3,6 +3,7 @@ import Controller from './controller.js';
 
 class Component {
     constructor( component ) {
+        this.target = null;
         this.name = component.name;
         this.model = component.model;
         this.view = new View( component.view );
@@ -10,13 +11,14 @@ class Component {
     }
 
     load( target ) {
-        //Update model
-        this.controller.updateModel && this.controller.updateModel();
+        if ( target ) {
+            this.target = target;
+        }
         // Load view
-        this.view.render( target, this.model );
+        this.view.render( this.target, this.model );
         //Wire up events
         this.view.events && this.view.events.forEach( event => {
-            target.querySelector( event.selector ).addEventListener( event.type, this.controller[ event.eventHandler ] );
+            this.target.querySelectorAll( event.selector ).forEach( elem => elem.addEventListener( event.type, this.controller[ event.eventHandler ] ) );
         } );
     }
 }
