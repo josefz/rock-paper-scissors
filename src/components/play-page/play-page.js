@@ -21,7 +21,7 @@ const htmlTemplate = ( model ) => {
                         </div>
                         <div class="options-container">
                             <div class="options-container__options">
-                                <div class="option ${renderActiveClass(model.currentRound, 'rock')}" data-choice="rock">
+                                <div class="option ${renderActiveClass( model.currentRound, 'rock' )}" data-choice="rock">
                                     <div class="option__logo">
                                         <img src="../images/rock-logo.png">
                                     </div>
@@ -29,7 +29,7 @@ const htmlTemplate = ( model ) => {
                                         Rock
                                     </div>
                                 </div>
-                                <div class="option ${renderActiveClass(model.currentRound, 'paper')}" data-choice="paper">
+                                <div class="option ${renderActiveClass( model.currentRound, 'paper' )}" data-choice="paper">
                                     <div class="option__logo">
                                         <img src="../images/paper-logo.png">
                                     </div>
@@ -37,7 +37,7 @@ const htmlTemplate = ( model ) => {
                                         Paper
                                     </div>
                                 </div>
-                                <div class="option ${renderActiveClass(model.currentRound, 'scissors')}" data-choice="scissors">
+                                <div class="option ${renderActiveClass( model.currentRound, 'scissors' )}" data-choice="scissors">
                                     <div class="option__logo">
                                         <img src="../images/scissors-logo.png">
                                     </div>
@@ -75,9 +75,7 @@ const htmlTemplate = ( model ) => {
                     </div>
                 </div>
                 <div class="footer">
-                    <div>
-                        <div>Round: ${model.game.round}</div>
-                    </div>
+                    <div class="round">Round: ${model.game.round}</div>
                     <div class="game-button game-button--red">
                         <a href="/">Exit</a>
                     </div>
@@ -86,8 +84,8 @@ const htmlTemplate = ( model ) => {
         `
 };
 
-const renderActiveClass = (round, option) => {
-    if (!round) {
+const renderActiveClass = ( round, option ) => {
+    if ( !round ) {
         return '';
     }
     return (round.userchoice === option) ? 'chosen' : 'not-chosen';
