@@ -1,6 +1,11 @@
 import Component from '../../lib/component.js';
 import Game from '../../lib/game.js';
 
+const GAME_STATE = {
+    CHOOSING: 'choosing',
+    RESULT: 'result'
+};
+
 const htmlTemplate = ( model ) => {
     return `
             <div id="play-page">
@@ -16,7 +21,7 @@ const htmlTemplate = ( model ) => {
                         </div>
                         <div class="options-container">
                             <div class="options-container__options">
-                                <div class="option" data-choice="rock">
+                                <div class="option ${renderActiveClass(model.currentRound, 'rock')}" data-choice="rock">
                                     <div class="option__logo">
                                         <img src="../images/rock-logo.png">
                                     </div>
@@ -24,7 +29,7 @@ const htmlTemplate = ( model ) => {
                                         Rock
                                     </div>
                                 </div>
-                                <div class="option" data-choice="paper">
+                                <div class="option ${renderActiveClass(model.currentRound, 'paper')}" data-choice="paper">
                                     <div class="option__logo">
                                         <img src="../images/paper-logo.png">
                                     </div>
@@ -32,7 +37,7 @@ const htmlTemplate = ( model ) => {
                                         Paper
                                     </div>
                                 </div>
-                                <div class="option" data-choice="scissors">
+                                <div class="option ${renderActiveClass(model.currentRound, 'scissors')}" data-choice="scissors">
                                     <div class="option__logo">
                                         <img src="../images/scissors-logo.png">
                                     </div>
@@ -54,9 +59,7 @@ const htmlTemplate = ( model ) => {
                             </div>
                         </div>
                         <div class="game-manager">
-                            <div class="game-manager__message">
-                               Choose your weapon!
-                            </div>
+                            ${renderResult( model.currentRound )}
                         </div>
                     </div>
                     <div class="panel computer-panel">
@@ -68,7 +71,7 @@ const htmlTemplate = ( model ) => {
                                 ${model.game.computerPoints}
                             </div>
                         </div>
-                        ${renderComputerChoice(model.gameStatus)}
+                        ${renderComputerChoice( model.currentRound )}
                     </div>
                 </div>
                 <div class="footer">
@@ -83,22 +86,46 @@ const htmlTemplate = ( model ) => {
         `
 };
 
-const renderComputerChoice = ( gameStatus ) => {
-    if (!gameStatus.active){
+const renderActiveClass = (round, option) => {
+    if (!round) {
+        return '';
+    }
+    return (round.userchoice === option) ? 'chosen' : 'not-chosen';
+};
+
+const renderComputerChoice = ( round ) => {
+    if ( !round ) {
         return `
                 <div class="computer-option">
-                    <div class="option">
-                        ?
+                    <div class="choosing">
                      </div>
                 </div>
                 `
     } else {
-
         return `
                 <div class="computer-option">
-                    <div class="option-${gameStatus.computerChoice}"></div>                   
+                    <div class="game-result option-${round.computerChoice}"></div>                   
                 </div>
-                `
+        `
+    }
+};
+
+const renderResult = ( round ) => {
+    if ( !round ) {
+        return ` 
+            <div class="game-manager__message">
+                Choose your weapon!
+            </div>
+        `
+    } else {
+        return `
+            <div class="game-manager__message">
+                ${(round.winner === 'user') ? 'YOU WIN!!!' : (round.winner === 'computer') ? 'Defeated...' : 'Draw!'}
+            </div>
+            <div id="retry-button" class="game-button game-button--orange">
+                <a> Try again?</a>
+            </div>
+        `
     }
 };
 
@@ -106,8 +133,8 @@ let PlayPage = new Component( {
     name: 'play-page',
     model: {
         game: new Game(),
-        gameStatus: {
-            active: false
+        gameState: {
+            currentState: GAME_STATE.CHOOSING
         }
     },
     view: {
@@ -116,16 +143,23 @@ let PlayPage = new Component( {
             selector: '.option',
             type: 'click',
             eventHandler: 'selectOption'
+        }, {
+            selector: '#retry-button',
+            type: 'click',
+            eventHandler: 'retry'
         } ]
     },
     controller: {
         eventHandlers: {
             selectOption( e ) {
                 const choice = e.currentTarget.dataset.choice;
-                //First we stop user animation and start computer animation
-                PlayPage.model.gameStatus.active = true;
-                const newRound = PlayPage.model.game.newRound( choice );
-                PlayPage.model.gameStatus.computerChoice = newRound.computerChoice;
+                //We generate new round and then reload the view with the new model
+                PlayPage.model.currentRound = PlayPage.model.game.newRound( choice );
+                PlayPage.load();
+            },
+            retry() {
+                //We set the currentRound to undefined to start over
+                PlayPage.model.currentRound = undefined;
                 PlayPage.load();
             }
         }

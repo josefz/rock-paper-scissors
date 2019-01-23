@@ -128,6 +128,15 @@ body {
     align-content: center;
 }
 
+#play-page .options-container .options-container__options .option.chosen{
+    transform: scale(1.3);
+    pointer-events: none;
+}
+
+#play-page .options-container .options-container__options .option.not-chosen{
+    pointer-events: none;
+}
+
 #play-page .options-container .option:hover {
     cursor: pointer;
 }
@@ -155,17 +164,21 @@ body {
 }
 
 #play-page .options-container .option > .option__logo:hover {
-     transform: scale(1.2);
- }
+    transform: scale(1.2);
+}
 
 #play-page .game-manager {
     height: 100%;
+    min-width: 250px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #play-page .game-manager .game-manager__message {
     align-content: center;
+    padding: 5px;
 }
 
 #play-page .computer-option {
@@ -175,31 +188,27 @@ body {
     justify-content: center;
 }
 
-#play-page .computer-option .option {
-     align-content: center;
-     -webkit-text-stroke-width: 3px;
-     -webkit-text-stroke-color: black;
-     color: white;
-     font-size: 100px;
- }
+#play-page .computer-option div.choosing {
+    height: 100px;
+    width: 100px;
+    animation: random-choice-animation 0.5s backwards infinite;
+}
 
-#play-page .computer-option div {
+#play-page .computer-option div.game-result {
     height: 100px;
     width: 100px;
 }
 
-#play-page .computer-option div.option-rock {
+#play-page .computer-option div.game-result.option-rock {
     background-image: url("./images/rock-logo.png");
 }
-#play-page .computer-option div.option-scissors {
-    background-image: url("./images/scissors-logo.png");
-}
-#play-page .computer-option div.option-paper {
+
+#play-page .computer-option div.game-result.option-paper {
     background-image: url("./images/paper-logo.png");
 }
 
-#play-page .computer-option .option.active {
-    display: none;
+#play-page .computer-option div.game-result.option-scissors {
+    background-image: url("./images/scissors-logo.png");
 }
 
 #play-page .footer {
@@ -220,7 +229,7 @@ body {
 }
 
 .game-options .game-button {
-    margin: 8px;
+    margin: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,5 +254,20 @@ body {
     to {
         -webkit-transform: scale(1.02);
         transform: scale(1.02);
+    }
+}
+
+@keyframes random-choice-animation {
+    0% {
+        background-image: url("./images/scissors-logo.png");
+    }
+    33% {
+        background-image: url("./images/rock-logo.png");
+    }
+    66% {
+        background-image: url("./images/paper-logo.png");
+    }
+    100% {
+        background-image: url("./images/scissors-logo.png");
     }
 }
