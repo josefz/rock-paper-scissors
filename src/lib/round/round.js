@@ -1,4 +1,4 @@
-import GAME_CONFIG from './game-config.js';
+import GAME_CONFIG from '../game-config.js';
 
 class Round {
     constructor( choice ) {

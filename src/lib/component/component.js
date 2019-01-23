@@ -1,5 +1,5 @@
-import View from '../view.js';
-import Controller from '../controller.js';
+import View from '../view/view.js';
+import Controller from '../controller/controller.js';
 
 class Component {
     constructor( component ) {

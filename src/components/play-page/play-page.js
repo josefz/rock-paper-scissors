@@ -1,5 +1,5 @@
 import Component from '../../lib/component/component.js';
-import Game from '../../lib/game.js';
+import Game from '../../lib/game/game.js';
 
 const GAME_STATE = {
     CHOOSING: 'choosing',

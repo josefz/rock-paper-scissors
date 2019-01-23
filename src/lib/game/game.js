@@ -1,4 +1,4 @@
-import Round from './round.js';
+import Round from '../round/round.js';
 
 class Game {
     constructor() {
