@@ -1,4 +1,4 @@
-import Component from "/../../lib/component.js";
+import Component from "/../../lib/component/component.js";
 
 const htmlTemplate = (model) => `
         <div id="welcome-page">

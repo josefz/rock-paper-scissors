@@ -17,4 +17,5 @@ Router
 
 
 Improvements:
-- Load pages on demand
+- Modular CSS
+- Error handling

@@ -191,7 +191,7 @@ body {
 #play-page .computer-option div.choosing {
     height: 100px;
     width: 100px;
-    animation: random-choice-animation 0.5s backwards infinite;
+    animation: computer-choice-animation 0.5s backwards infinite;
 }
 
 #play-page .computer-option div.game-result {
@@ -240,16 +240,14 @@ body {
     transform: translateX(-8px);
 }
 
-/* Keyframes */
-
-/* Icon Pulse Grow */
+/* KEYFRAMES */
+/* Logo animation */
 @-webkit-keyframes hvr-icon-pulse-grow {
     to {
         -webkit-transform: scale(1.02);
         transform: scale(1.02);
     }
 }
-
 @keyframes hvr-icon-pulse-grow {
     to {
         -webkit-transform: scale(1.02);
@@ -257,7 +255,8 @@ body {
     }
 }
 
-@keyframes random-choice-animation {
+/* */
+@keyframes computer-choice-animation {
     0% {
         background-image: url("./images/scissors-logo.png");
     }

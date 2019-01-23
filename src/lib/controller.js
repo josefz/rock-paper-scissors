@@ -1,9 +1,7 @@
 class Controller {
-    constructor( controller, model, view ) {
+    constructor( controller, model ) {
         this.model = model;
-        this.view = view;
         this.controller = controller;
-        this.updateModel = controller.updateModel || null;
 
         //Define dynamically event handlers
         if ( controller.eventHandlers ) {

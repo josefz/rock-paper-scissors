@@ -1,4 +1,4 @@
-import Component from '../../lib/component.js';
+import Component from '../../lib/component/component.js';
 import Game from '../../lib/game.js';
 
 const GAME_STATE = {

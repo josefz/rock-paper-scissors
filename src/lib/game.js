@@ -22,11 +22,6 @@ class Game {
                 this.draws = this.draws + newRound.points;
                 break;
         }
-        if ( newRound.winner === 'user' ) {
-
-        } else if ( newRound.winner === 'computer' ) {
-
-        }
         this.round++;
         this.rounds.push( newRound );
         return newRound;

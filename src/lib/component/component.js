@@ -1,5 +1,5 @@
-import View from './view.js';
-import Controller from './controller.js';
+import View from '../view.js';
+import Controller from '../controller.js';
 
 class Component {
     constructor( component ) {
@@ -7,7 +7,7 @@ class Component {
         this.name = component.name;
         this.model = component.model;
         this.view = new View( component.view );
-        this.controller = new Controller( component.controller, component.model, component.view );
+        this.controller = new Controller( component.controller, component.model );
     }
 
     load( target ) {
