@@ -2,8 +2,7 @@
   "name": "rock-paper-scissors",
   "version": "1.0.0",
   "author": "Jose Fernandez <https://github.com/josefz>",
-  "description": "",
-  "main": "src/index.js",
+  "description": "A Rock-Paper-Scissors game with a no framework approach",
   "scripts": {
     "start": "http-server src",
     "test": "jest"

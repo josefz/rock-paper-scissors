@@ -1,8 +1,8 @@
 # Rock Paper Scissors
 
-Rock-paper-scissors is a well known hand game played usually between two users. Each user chooses secretly a hand shape between rock, paper or scissors, and then both reveal their choices at the same time. One wins, one loses... Unless, of course, both choose the same item.
+Rock-paper-scissors is a well known hand game played usually between two players. Each player chooses secretly a hand shape between rock, paper or scissors, and then both reveal their choices at the same time. One wins, one loses... Unless, of course, both choose the same item.
 
-This is simple project that recreates that game. The interesting part about it is that it's built completely from scratch, using no libraries at all, and following a MVC (Model-View-Controller) approach.
+This is a simple project that recreates that game. The interesting part about it is that it's built completely from scratch, using no libraries at all, and following a MVC (Model-View-Controller) approach.
 
 Before we get into the matter, [you can start by giving the game a try](https://rock-paper-scissors-mvc.herokuapp.com/)!
 
@@ -34,7 +34,7 @@ And that's it! We have a homemade framework. You can find out more about how the
 ## The actual game
 There are only two classes to handle the game flow: Game and Round. Each Game contains the current state of the app, stores user and computer points, draws, the round we are in, and a historic of games, which is not used at the moment but might be of help in a newer version... (who knows!)
 
-And then there are Rounds, which is just a class that generates a new simulation of the game, assigning a random choice to the computer and calculating who is the winner of that round. This is done by a very simple hashmap that we store in the game config, so we could easily change it if we suddenly decide that now rocks beats everyone! (Or...if we want to implement new items like lizard, spock, etc)
+And then there are Rounds, which is just a class that generates a new simulation of the game, assigning a random choice to the computer and calculating who is the winner of that round. This is done by a very simple hashmap that we store in the game config, so we could easily change it if we suddenly decide that from now on rocks beats everyone! (Or...if we want to implement new items like lizard, spock, etc)
 
 ```
 winsAgainstMap: {
@@ -60,3 +60,6 @@ To make this project possible I had to do a few reads on some useful and interes
 
 * [Frontend Face-Off - Vanilla JS MVC with CJ Reynolds](https://www.youtube.com/watch?v=ZBilSF7Oi1k) Only 28' video and actually pretty fun to watch. The guy nails it.
 * [The MVC Design Pattern in Vanilla JavaScript](https://www.sitepoint.com/mvc-design-pattern-javascript/) Another great example. It helped me a lot on how to structure my components using the MVC.
+
+##License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/josefz/rock-paper-scissors/blob/master/LICENSE) file for details.
