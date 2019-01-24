@@ -17,7 +17,6 @@ class Router {
     }
 
     hashChange() {
-        //ToDo: Unit tests this filter so it only works with the right path
         const hash = window.location.hash;
         const route = this.routes.filter( route => hash === route.path )[ 0 ];
 

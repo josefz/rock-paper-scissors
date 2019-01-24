@@ -20,10 +20,10 @@ describe( 'Component:', () => {
 
     test( 'class should be defined', () => {
         expect( Component ).toBeDefined();
+        expect( component ).toBeInstanceOf( Component );
     } );
 
     test( 'should have all the default attributes initialized', () => {
-        expect( component ).toBeInstanceOf( Component );
         expect( component.target ).toBe( null );
         expect( component.name ).toBe( 'test-page' );
         expect( component.model ).toEqual( {

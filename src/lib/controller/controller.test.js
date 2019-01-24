@@ -24,6 +24,7 @@ describe( 'Controller:', () => {
 
     test( 'class should be defined', () => {
         expect( Controller ).toBeDefined();
+        expect( controller ).toBeInstanceOf( Controller );
     } );
 
     test( 'should have a controller and a model attached', () => {
